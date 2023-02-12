@@ -1,0 +1,325 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: white;
+}
+
+#root,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root,
+h1 {
+  font-size: 40px;
+  margin-top: 30px;
+  font-weight: bold;
+  color: #8e9300;
+  text-shadow: 1px 1px 0.2 #c4ce05;
+  font-family: "Times New Roman";
+}
+
+#wrapper .info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 3.8rem;
+  font-weight: bold;
+  color: rgb(45, 45, 45);
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(220, 220, 220);
+  margin: 1rem 0 1rem 0;
+}
+
+#coordinates,
+#steps {
+  font-size: 1.2rem;
+  color: #484848;
+}
+
+#grid {
+  --s: 100px; /* control the size */
+  --g: 3px; /* control the gap */
+  display: grid;
+  margin: calc(var(--s) + var(--g));
+  background-color: #484b00;
+}
+
+#grid > div {
+  border: 0.4px solid rgb(21, 21, 21);
+  background-color: #8e9300;
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 0.866;
+  object-fit: cover;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0);
+  transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
+  transition: 0.2s linear;
+  line-height: 110px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  font-size: 4rem;
+}
+
+#grid > div:nth-child(3) {
+  --_x: calc(-100% - var(--g));
+}
+#grid > div:nth-child(5) {
+  --_x: calc(100% + var(--g));
+}
+#grid > div:nth-child(1),
+#grid > div:nth-child(2) {
+  --_y: calc(-75% - 0.87 * var(--g));
+}
+#grid > div:nth-child(6),
+#grid > div:nth-child(7) {
+  --_y: calc(75% + 0.87 * var(--g));
+}
+
+#grid > div:nth-child(1),
+#grid > div:nth-child(6) {
+  --_x: calc(-50% - 0.5 * var(--g));
+}
+#grid > div:nth-child(2),
+#grid > div:nth-child(7) {
+  --_x: calc(50% + 0.5 * var(--g));
+}
+
+#message {
+  font-size: 1.2rem;
+  color: #b51c02;
+  font-style: italic;
+}
+
+.classBased #grid .Hexagon.active {
+  background-color: #bd5302;
+}
+
+#keypad {
+  background-color: rbg(252, 252, 252);
+  border-radius: 50%;
+  border: 1px solid rbg(238, 238, 238);
+  padding: 0.55erm;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 55px 55px 55px;
+  grid-template-rows: 55px 55px 55px;
+  grid-template-areas:
+    ". up ."
+    "left reset right"
+    ". down .";
+}
+
+#keypad button {
+  border: 1px solid #dddddd;
+  border-radius: 28%;
+  align-self: center;
+  width: 55px;
+  height: 55px;
+}
+
+#keypad button:active {
+  box-shadow: 0 0 5px #938900;
+  border: 1px solid #7a9300;
+  background-color: white;
+}
+
+button#reset {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  margin-left: 5px;
+  grid-area: reset;
+}
+
+button#left {
+  grid-area: left;
+}
+
+button#up {
+  grid-area: up;
+  margin-bottom: 3px;
+}
+
+button#right {
+  grid-area: right;
+  margin-left: 5px;
+}
+
+button#down {
+  grid-area: down;
+  margin-top: 3px;
+}
+
+input {
+  height: 1.9rem;
+  border-radius: 0;
+  margin: -1px;
+  border: 1px solid #dddddd;
+  background-color: white;
+  outline: none;
+}
+
+input[type="email"] {
+  width: 230px;
+  margin-right: 1rem;
+}
+
+input:active {
+  box-shadow: 0 0 5px #938900;
+  border: 1px solid #7a9300;
+}
+
+
+/*# sourceMappingURL=/theprism.e31bb0bc.css.map */
