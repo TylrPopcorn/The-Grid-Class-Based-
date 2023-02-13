@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//REDUCER STUFF: --
+//REDUCER STUFF: ---
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
@@ -29,6 +29,7 @@ export const resetStore = () => {
   store = createStore(Reducer, composeEnhancers(applyMiddleware(thunk)));
 };
 resetStore();
+//--
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
