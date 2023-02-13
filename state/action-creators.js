@@ -38,16 +38,16 @@ const ACTIONS = {
         return { type: ACTION_TYPES.UP }; //Invoke the up button reducer.
 
       case ACTION_TYPES.RESET: //Reset button
-        return { type: ACTION_TYPES.RESET };
+        return { type: ACTION_TYPES.RESET }; //Invoke the reset reducer.
 
       case ACTION_TYPES.INPUT: //Input
-        return { type: ACTION_TYPES.INPUT, payload: data };
+        return { type: ACTION_TYPES.INPUT, payload: data }; //Invoke the input reducer.
 
       case ACTION_TYPES.SUBMIT: //Submit
-        return { type: ACTION_TYPES.SUBMIT };
+        return { type: ACTION_TYPES.SUBMIT }; //Invoke the submit reducer.
 
       case ACTION_TYPES.ERROR: //Error
-        return { type: ACTION_TYPES.ERROR, payload: data };
+        return { type: ACTION_TYPES.ERROR, payload: data }; //Invoke the error reducer.
 
       default: //return error saying "action not found"
         //NOTE: By DEFAULT, an error should be returned. This function is to only be used for things that need it. Anything else will proceed an error.
